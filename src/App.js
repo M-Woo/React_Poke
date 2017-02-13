@@ -17,21 +17,23 @@ class App extends Component {
         </p>
         <div>
           <input></input>
-          <button onClick={() =>this.search()}>Catch 'em</button>
+          <button onClick={() =>this.search()}>Catch em</button>
         </div>
       </div>
     );
   }
+  search = () => {
+    console.log('search')
+  };
+
 }
 
 var pokeSearch = null
 
 $.get('http://pokeapi.co/api/v2/'+ pokeSearch,{
 
-/ })
-search = () => {
-  console.log('search')
-};
+})
+
 
 
 
