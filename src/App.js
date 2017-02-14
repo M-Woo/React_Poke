@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      abilites: []
+      pokedata: []
     };
   }
 
@@ -25,7 +25,8 @@ class App extends Component {
         </p>
         <div>
           <input></input>
-          <h1>{console.log(this.state.abilites)}</h1>
+          <h3>{this.state.pokedata.name}</h3>
+          <h3>{this.state.pokedata.id}</h3>
           <button onClick={() =>this.search()}>Catch em</button>
         </div>
       </div>
@@ -33,14 +34,15 @@ class App extends Component {
   }
 
   search = () => {
-    console.log('search')
     var pokeSearch = 'weedle';
-  $.get('http://pokeapi.co/api/v2/pokemon/'+ pokeSearch,{
-    }).then((data) => {
+  $.get('http://pokeapi.co/api/v2/pokemon/'+ pokeSearch)
+    .done((data) => {
       console.log(data)
-      this.setState({abilities: data});
+      this.setState({pokedata: data});
     });
   };
+
+
 }
 
 
