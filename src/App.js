@@ -4,6 +4,14 @@ import './App.css';
 import $ from 'jquery';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      abilites: []
+    };
+  }
+
   render() {
     return (
       <div className="App">
@@ -17,22 +25,24 @@ class App extends Component {
         </p>
         <div>
           <input></input>
+          <h1>{console.log(this.state.abilites)}</h1>
           <button onClick={() =>this.search()}>Catch em</button>
         </div>
       </div>
     );
   }
+
   search = () => {
     console.log('search')
+    var pokeSearch = 'weedle';
+  $.get('http://pokeapi.co/api/v2/pokemon/'+ pokeSearch,{
+    }).then((data) => {
+      console.log(data)
+      this.setState({abilities: data});
+    });
   };
-
 }
 
-var pokeSearch = null
-
-$.get('http://pokeapi.co/api/v2/'+ pokeSearch,{
-
-})
 
 
 
